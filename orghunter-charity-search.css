@@ -1,0 +1,12 @@
+.orghunter-charity-search-result-charity .label {
+  display: none;
+}
+.orghunter-charity-search-result-charity div.orghunter-charity-search-result-charity-status-4 {
+  color: #fff;
+  background-color: #D40000;
+  display: inline-block;
+  padding: 2px 6px;
+}
+.orghunter-charity-search-results-pager {
+  margin: 4em 0;
+}
