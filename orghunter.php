@@ -4,9 +4,9 @@
  */
 /*
 Plugin Name: OrgHunter
-Plugin URI: http://orghunter.com
-Description: Charity Search and Charity Donation Plugin. Add 2.1 million US charities to your WordPress website instantly. America's most trusted charity resource!
-Version: 0.1
+Plugin URI: https://wordpress.org/plugins/orghunter
+Description: Charity Search and Charity Donation Plugin. Add 2.1 million US charities to your WordPress website instantly. America’s most trusted charity resource!
+Version: 1.0
 Author: OrgHunter
 Author URI: http://orghunter.com
 License: GPLv2 or later
