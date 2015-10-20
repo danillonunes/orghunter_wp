@@ -172,9 +172,27 @@ function orghunter_charity_search_results_page_content($content) {
       $rows = get_option( 'orghunter_results_count' ) ? get_option( 'orghunter_results_count' ) : ORGHUNTER_CHARITY_SEARCH_API_ROWS_DEFAULT;
       $results_page_id = get_option( 'orghunter_charity_search_results_page_id' );
 
+      $search_values = array(
+        'search_term' => $_GET['search_term'],
+        'ein' => $_GET['ein'],
+        'state' => $_GET['state'],
+        'city' => $_GET['city'],
+        'zip_code' => $_GET['zip_code'],
+        'category' => $_GET['category'],
+        'eligible' => $_GET['eligible'],
+      );
+
+      include_once( ORGHUNTER_PLUGIN_DIR . '/api.php' );
+
+      $search_query = orghunter_charity_search_build_query( $search_values );
+
+      $base = get_permalink( $results_page_id );
+      $page_query = 'page=%#%&' . $search_query;
+      $base = ( strpos( $base, '?' ) === FALSE ) ? $base . '?' . $page_query : $base . '&' . $page_query;
+
       if ($total > $rows) {
         $pager = paginate_links( array(
-          'base' => get_permalink( $results_page_id ) . '?page=%#%',
+          'base' => $base,
           'current' => max( 1, get_query_var( 'page' ) ),
           'total' => ceil( $total / $rows ) - 1,
         ) );
@@ -231,6 +249,8 @@ function orghunter_charity_search() {
     $values['rows'] = get_option( 'orghunter_results_count' ) ? get_option( 'orghunter_results_count' ) : ORGHUNTER_CHARITY_SEARCH_API_ROWS_DEFAULT;
     $start =
     $values['start'] = $page * $rows;
+
+    include_once( ORGHUNTER_PLUGIN_DIR . '/api.php' );
 
     $search_results = orghunter_charity_search_results( $values );
   }

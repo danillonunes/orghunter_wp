@@ -65,7 +65,7 @@ $states = array(
   'WY' => __( 'Wyoming' ),
 );
 
-include( ORGHUNTER_PLUGIN_DIR . '/api.php' );
+include_once( ORGHUNTER_PLUGIN_DIR . '/api.php' );
 $categories = orghunter_charity_search_categories();
 
 $results_page_id = get_option( 'orghunter_charity_search_results_page_id' );
