@@ -229,8 +229,6 @@ function orghunter_charity_search() {
       $values['search_term'] = '';
     }
 
-    $values['eligible'] = $values['eligible'] == 'on' ? '1' : '';
-
     if (
       !$values['search_term'] &&
       !$values['ein'] &&
@@ -242,6 +240,9 @@ function orghunter_charity_search() {
     ) {
       return array();
     }
+
+    $values['search_term'] = str_replace(' ', '+', $values['search_term']);
+    $values['eligible'] = $values['eligible'] == 'on' ? '1' : '';
 
     $page = get_query_var( 'page' , 1) - 1;
     $values['category'] = $values['category'] == '?' ? '' : $values['category'];
