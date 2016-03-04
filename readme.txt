@@ -2,8 +2,8 @@
 Contributors: danillonunes
 Tags: orghunter, charity, search, third-party, donation
 Requires at least: 3.7
-Tested up to: 4.3.1
-Stable tag: trunk
+Tested up to: 4.4.2
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -11,7 +11,7 @@ Charity Search and Charity Donation Plugin. Add 2.1 million US charities to your
 
 == Description ==
 
-**Charity API Affiliate LogoOrgHunter.com Philanthropic Affiliate Program**
+**OrgHunter.com Philanthropic Affiliate Program**
 
 The OrgHunter.com Philanthropic Affiliate Program is a unique opportunity for
 you to earn millions of dollars for charity! Of course, it is also a great way
