@@ -278,6 +278,7 @@ function orghunter_charity_search_display_result_charity( $charity ) {
   $deductibility = $charity->deductibilityCd;
   $eligible = $charity->eligibleCd;
   $status = $charity->statusCd;
+  $accepting_donations = $charity->acceptingDonations;
   $donation = $charity->donationUrl;
 
   if ($aid = get_option('orghunter_affiliate_id')) {

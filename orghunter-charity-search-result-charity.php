@@ -31,7 +31,7 @@
     <?php endif; ?>
   </div>
   <div class="orghunter-charity-search-result-charity-donation orghunter-charity-search-result-charity-donation-<?php echo $eligible; ?>">
-    <?php if ( $eligible ): ?>
+    <?php if ( $accepting_donations ): ?>
       <a href="<?php echo $donation; ?>"><?php _e( 'Donate Now' ); ?></a>
     <?php endif; ?>
   </div>
