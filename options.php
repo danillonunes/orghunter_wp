@@ -33,6 +33,14 @@
 </tr>
 
 <tr>
+<th scope="row"><label for="orghunter_return_url"><?php _e( 'Return URL' ); ?></label></th>
+<td>
+  <input type="text" class="regular-text" name="orghunter_return_url" value="<?php echo get_option('orghunter_return_url'); ?>" />
+  <p class="description"><?php _e( 'Enter an address for the user to be redirect after the donation.' ); ?></p>
+</td>
+</tr>
+
+<tr>
 <th scope="row"><label for="orghunter_results_count"><?php _e( 'Results count' ); ?></label></th>
 <td>
   <input type="text" class="small-text" name="orghunter_results_count" value="<?php echo get_option('orghunter_results_count'); ?>" />

@@ -53,6 +53,7 @@ function orghunter_admin_init() {
   register_setting( 'orghunter', 'orghunter_api_url' );
   register_setting( 'orghunter', 'orghunter_api_key' );
   register_setting( 'orghunter', 'orghunter_affiliate_id' );
+  register_setting( 'orghunter', 'orghunter_return_url', 'orghunter_options_return_url_sanitize' );
   register_setting( 'orghunter', 'orghunter_results_count' );
   register_setting( 'orghunter', 'orghunter_powered_by' );
 }
@@ -63,6 +64,15 @@ function orghunter_admin_menu() {
 
 function orghunter_options() {
   include( ORGHUNTER_PLUGIN_DIR . '/options.php' );
+}
+
+function orghunter_options_return_url_sanitize($value) {
+  $url = esc_url( $value, array( 'http', 'https' ) );
+  if (!$url) {
+    add_settings_error( 'orghunter_return_url', 'invalid_url', __( 'The provided Return URL is invalid.' ) );
+  }
+
+  return $url;
 }
 
 add_action( 'widgets_init', 'orghunter_widget' );
@@ -283,6 +293,10 @@ function orghunter_charity_search_display_result_charity( $charity ) {
 
   if ($aid = get_option('orghunter_affiliate_id')) {
     $donation .= ( strpos( '?', $donation ) ? '&a=' . $aid : '?a=' . $aid );
+  }
+  if ($rurl = get_option('orghunter_return_url')) {
+    $rurl = urlencode($rurl);
+    $donation .= ( strpos( '?', $donation ) ? '&r=' . $rurl : '?r=' . $rurl );
   }
 
   ob_start();
